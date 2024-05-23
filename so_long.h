@@ -41,11 +41,11 @@ typedef struct s_vars
 
 typedef struct s_img
 {
-	void	*player_image;
-	void	*exit_img;
-	void	*bg_image;
-	void	*wall_img;
-	void	*col_img;
+	void	*player;
+	void	*exit;
+	void	*bg;
+	void	*wall;
+	void	*col;
 	int		player_x;
 	int		player_y;
 	int		exit_x;
@@ -116,4 +116,7 @@ void		ft_lstadd_back_pos(t_position **lst, t_position *new);
 void		ft_free(void *var);
 t_position	*ft_new_pos(int x, int y, int flag);
 
+
+void	invalid_free(char *error, char **map, t_vars *var, t_img *img);
+int check_map_size(t_vars *var);
 #endif

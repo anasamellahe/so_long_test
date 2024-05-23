@@ -11,30 +11,19 @@ void	get_window_size(t_vars *var, int size, char **map)
 
 int	set_img(t_vars *var, t_img *img)
 {
-	img->wall_img = mlx_xpm_file_to_image(var->mlx, "img/wall/wall32.xpm",
+	img->wall = mlx_xpm_file_to_image(var->mlx, "img/wall/wall32.xpm",
 			&img->wall_x, &img->wall_y);
-	img->bg_image = mlx_xpm_file_to_image(var->mlx, "img/bg/bg32.xpm",
+	img->bg = mlx_xpm_file_to_image(var->mlx, "img/bg/bg32.xpm",
 			&img->bg_x, &img->bg_y);
-	img->player_image = mlx_xpm_file_to_image(var->mlx, "img/player/player.xpm",
+	img->player = mlx_xpm_file_to_image(var->mlx, "img/player/player.xpm",
 			&img->player_x, &img->player_y);
-	img->col_img = mlx_xpm_file_to_image(var->mlx, "img/apple/apple1.xpm",
+	img->col = mlx_xpm_file_to_image(var->mlx, "img/apple/apple1.xpm",
 			&img->col_x, &img->col_y);
-	img->exit_img = mlx_xpm_file_to_image(var->mlx, "img/exit/exit.xpm",
+	img->exit = mlx_xpm_file_to_image(var->mlx, "img/exit/exit.xpm",
 			&img->exit_x, &img->exit_y);
-	if (!img->wall_img || !img->bg_image || !img->player_image || !img->col_img || !img->exit_img)
-	{
-		if (img->bg_image)
-			mlx_destroy_image(var->mlx,img->bg_image);
-		if (img->col_img)
-			mlx_destroy_image(var->mlx,img->col_img);
-		if (img->exit_img)
-			mlx_destroy_image(var->mlx,img->exit_img);
-		if (img->player_image)
-			mlx_destroy_image(var->mlx,img->player_image);
-		if (img->wall_img)
-			mlx_destroy_image(var->mlx,img->wall_img);
+	if (!img->wall || !img->bg || !img->player || !img->col
+		|| !img->exit)
 		return (1);
-	}
 	return (0);
 }
 
@@ -64,16 +53,6 @@ void	set_posistion(t_position **pos, int size, t_player *player, char **map)
 		}
 		i++;
 	}
-}
-
-int	map_len(char **map)
-{
-	int	i;
-
-	i = 0;
-	while (map[i])
-		i++;
-	return (i);
 }
 
 int	map_generator(int fd)
@@ -112,12 +91,12 @@ int	main(int ac, char *av[])
 		fd = open(av[1], O_RDWR);
 		if (fd == -1)
 		{
-			write(2,"Error\n", 6);
+			write(2, "Error\n", 6);
 			return (1);
 		}
 		if (map_generator(fd))
 		{
-			write(2,"Error:map invalid\n", 19);
+			write(2, "Error:map invalid\n", 19);
 			return (1);
 		}
 	}

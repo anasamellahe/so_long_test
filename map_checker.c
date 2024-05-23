@@ -85,8 +85,8 @@ int	check_map(char **map)
 
 void	flood_fill(char **map, int x, int y, int h)
 {
-	if (map[y][x] != '0' && map[y][x] != 'C'
-		&& map[y][x] != 'E' && map[y][x] != 'P')
+	if (map[y][x] != '0' && map[y][x] != 'C' && map[y][x] != 'E'
+		&& map[y][x] != 'P')
 		return ;
 	map[y][x] = ('-' * (map[y][x] != 'E')) + ('2' * (map[y][x] == 'E'));
 	if (y > 0)

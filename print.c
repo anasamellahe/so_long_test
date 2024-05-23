@@ -5,7 +5,7 @@ void	print_collectible(t_vars *var, t_img *img, t_position *pos)
 	while (pos)
 	{
 		if (pos->col_x != -1 && pos->col_y != -1)
-			mlx_put_image_to_window(var->mlx, var->win, img->col_img,
+			mlx_put_image_to_window(var->mlx, var->win, img->col,
 				pos->col_x, pos->col_y);
 		pos = pos->next;
 	}
@@ -16,7 +16,7 @@ void	print_wall(t_vars *var, t_position *pos, t_img *img)
 	while (pos)
 	{
 		if (pos->wall_x != -1 && pos->wall_y != -1)
-			mlx_put_image_to_window(var->mlx, var->win, img->wall_img,
+			mlx_put_image_to_window(var->mlx, var->win, img->wall,
 				pos->wall_x, pos->wall_y);
 		pos = pos->next;
 	}
@@ -33,7 +33,7 @@ void	print_bg(t_vars *var, t_img *img)
 		j = 0;
 		while (j < var->win_y)
 		{
-			mlx_put_image_to_window(var->mlx, var->win, img->bg_image, i, j);
+			mlx_put_image_to_window(var->mlx, var->win, img->bg, i, j);
 			j += img->bg_y;
 		}
 		i += img->bg_x;
@@ -42,10 +42,10 @@ void	print_bg(t_vars *var, t_img *img)
 
 void	print_player(t_param *param, int x, int y)
 {
-	int	old_x;
-	int	old_y;
-	int	size;
-	t_position *pos;
+	int			old_x;
+	int			old_y;
+	int			size;
+	t_position	*pos;
 
 	pos = param->pos;
 	size = param->img->player_x;
@@ -56,30 +56,17 @@ void	print_player(t_param *param, int x, int y)
 		if (pos->exit_x == old_x && pos->exit_y == old_y)
 		{
 			mlx_put_image_to_window(param->var->mlx, param->var->win,
-				param->img->exit_img, old_x, old_y);
+				param->img->exit, old_x, old_y);
 			old_x = -1;
-			break;
-		}
-		pos = pos->next; 
-	}
-	if (old_x != -1)
-		mlx_put_image_to_window(param->var->mlx, param->var->win,
-				param->img->bg_image, old_x, old_y);
-	mlx_put_image_to_window(param->var->mlx, param->var->win,
-		param->img->player_image, param->player->x, param->player->y);
-}
-
-void	print_exit(t_vars *var, t_img *img, t_position *pos)
-{
-	while (pos)
-	{
-		if (pos->exit_x != -1 && pos->exit_y != -1)
-		{
-			mlx_put_image_to_window(var->mlx, var->win, img->exit_img, pos->exit_x, pos->exit_y);
-			break;
+			break ;
 		}
 		pos = pos->next;
 	}
+	if (old_x != -1)
+		mlx_put_image_to_window(param->var->mlx, param->var->win,
+			param->img->bg, old_x, old_y);
+	mlx_put_image_to_window(param->var->mlx, param->var->win,
+		param->img->player, param->player->x, param->player->y);
 }
 
 void	print_map(char **map)
@@ -92,12 +79,10 @@ void	print_map(char **map)
 	pos = NULL;
 	var.mlx = mlx_init();
 	if (set_img(&var, &img))
-	{
-		free_map(map);
-		write(2, "invalid xpm file\n", 17);
-		exit(1);
-	}
+		invalid_free("Error : invalid xpm file\n", map, &var, &img);
 	get_window_size(&var, img.wall_x, map);
+	if (check_map_size(&var))
+		invalid_free("Error : invalid map size\n", map, &var, &img);
 	var.win = mlx_new_window(var.mlx, var.win_x, var.win_y, "so_long");
 	print_bg(&var, &img);
 	set_posistion(&pos, img.wall_x, &player, map);

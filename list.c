@@ -32,9 +32,9 @@ t_position	*ft_new_pos(int x, int y, int flag)
 	new->next = NULL;
 	return (new);
 }
-void free_list(t_position *list)
+void	free_list(t_position *list)
 {
-	t_position *tmp;
+	t_position	*tmp;
 
 	while (list)
 	{
@@ -42,19 +42,17 @@ void free_list(t_position *list)
 		list = list->next;
 		free(tmp);
 	}
-	
 }
 
 int	destroy(t_param *param)
 {
-
-	mlx_destroy_image(param->var->mlx,param->img->bg_image);
-	mlx_destroy_image(param->var->mlx,param->img->col_img);
-	mlx_destroy_image(param->var->mlx,param->img->exit_img);
-	mlx_destroy_image(param->var->mlx,param->img->player_image);
-	mlx_destroy_image(param->var->mlx,param->img->wall_img);
-	mlx_destroy_display(param->var->mlx);
+	mlx_destroy_image(param->var->mlx, param->img->bg);
+	mlx_destroy_image(param->var->mlx, param->img->col);
+	mlx_destroy_image(param->var->mlx, param->img->exit);
+	mlx_destroy_image(param->var->mlx, param->img->player);
+	mlx_destroy_image(param->var->mlx, param->img->wall);
 	mlx_destroy_window(param->var->mlx, param->var->win);
+	mlx_destroy_display(param->var->mlx);
 	free(param->var->mlx);
 	free_list(param->pos);
 	free(param);
@@ -66,18 +64,4 @@ void	ft_free(void *var)
 	if (var)
 		free(var);
 	var = NULL;
-}
-
-int	free_map(char **map)
-{
-	int	i;
-
-	i = 0;
-	while (map[i])
-	{
-		ft_free(map[i]);
-		i++;
-	}
-	ft_free(map);
-	return (1);
 }

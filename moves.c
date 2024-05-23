@@ -33,8 +33,8 @@ int	check_move(t_param *param, int x, int y)
 			tmp_pos->col_y = -1;
 			return (1);
 		}
-		if (param->player->x + (x * size) == tmp_pos->exit_x
-			&& param->player->y + (y * size) == tmp_pos->exit_y)
+		if (param->player->x + (x * size) == tmp_pos->exit_x && param->player->y
+			+ (y * size) == tmp_pos->exit_y)
 			return (-1);
 		tmp_pos = tmp_pos->next;
 	}
@@ -43,57 +43,57 @@ int	check_move(t_param *param, int x, int y)
 
 int	check_position(t_param *param, int x, int y, int *moves)
 {
-	int	size;
-	int	move;
+	char	*smoves;
 
-	size = param->img->player_x;
-	move = check_move(param, x, y);
-	if (move == 1)
+	if (check_move(param, x, y) == 1)
 	{
-		param->player->x += x * size;
-		param->player->y += y * size;
+		param->player->x += x * param->img->player_x;
+		param->player->y += y * param->img->player_x;
 		print_player(param, x, y);
 		return (1);
 	}
-	if (move == -1 && check_exit(param))
+	if (check_move(param, x, y) == -1 && check_exit(param))
 	{
-			mlx_string_put(param->var->mlx, param->var->win, 10, 10, 0, ft_itoa(*moves));
-			destroy(param);
+		smoves = ft_itoa(*moves);
+		mlx_string_put(param->var->mlx, param->var->win, 10, 10, 0, smoves);
+		ft_free(smoves);
+		destroy(param);
 	}
-	else if (move == -1)
+	else if (check_move(param, x, y) == -1)
 	{
-		param->player->x += x * size;
-		param->player->y += y * size;
+		param->player->x += x * param->img->player_x;
+		param->player->y += y * param->img->player_x;
 		print_player(param, x, y);
 		return (1);
 	}
 	return (0);
 }
 
-
-int	check_key(int key, t_param *param)
+int	check_key(int key, t_param *p)
 {
 	static int	moves;
 	int			i;
+	char		*smoves;
 
-	i = 0;
 	if (key == ESC)
-		i = destroy(param);
+		i = (i * 0) + destroy(p);
 	if (key == UP_W || key == UP)
-		i = check_position(param, 0, -1, &moves);
+		i = (i * 0) + check_position(p, 0, -1, &moves);
 	if (key == DOWN_S || key == DOWN)
-		i = check_position(param, 0, 1, &moves);
+		i = (i * 0) + check_position(p, 0, 1, &moves);
 	if (key == LEFT_A || key == LEFT)
-		i = check_position(param, -1, 0, &moves);
+		i = (i * 0) + check_position(p, -1, 0, &moves);
 	if (key == RIGHT_D || key == RIGHT)
-		i = check_position(param, 1, 0, &moves);
+		i = (i * 0) + check_position(p, 1, 0, &moves);
 	moves += i;
 	if (i != 0)
 	{
-		mlx_put_image_to_window(param->var->mlx, param->var->win, param->img->wall_img, 0, 0);
-		mlx_put_image_to_window(param->var->mlx, param->var->win, param->img->wall_img, 32, 0);
-		mlx_put_image_to_window(param->var->mlx, param->var->win, param->img->wall_img, 64, 0);
-		mlx_string_put(param->var->mlx, param->var->win, 10, 10, 0, ft_itoa(moves));
+		mlx_put_image_to_window(p->var->mlx, p->var->win, p->img->wall, 0, 0);
+		mlx_put_image_to_window(p->var->mlx, p->var->win, p->img->wall, 32, 0);
+		mlx_put_image_to_window(p->var->mlx, p->var->win, p->img->wall, 64, 0);
+		smoves = ft_itoa(moves);
+		mlx_string_put(p->var->mlx, p->var->win, 10, 10, 0, smoves);
+		ft_free(smoves);
 	}
 	return (0);
 }
@@ -108,6 +108,6 @@ void	move_play(t_vars *var, t_img *img, t_position *pos, t_player *player)
 	param->pos = pos;
 	param->var = var;
 	print_player(param, 0, 0);
-	mlx_hook(var->win, 2, 1L>>0, check_key, param);
+	mlx_hook(var->win, 2, 1L >> 0, check_key, param);
 	mlx_hook(var->win, 17, 0, destroy, param);
 }
