@@ -11,18 +11,17 @@ void	get_window_size(t_vars *var, int size, char **map)
 
 int	set_img(t_vars *var, t_img *img)
 {
-	img->wall = mlx_xpm_file_to_image(var->mlx, "img/wall/wall32.xpm",
+	img->wall = mlx_xpm_file_to_image(var->mlx, "textures/wall/wall.xpm",
 			&img->wall_x, &img->wall_y);
-	img->bg = mlx_xpm_file_to_image(var->mlx, "img/bg/bg32.xpm",
-			&img->bg_x, &img->bg_y);
-	img->player = mlx_xpm_file_to_image(var->mlx, "img/player/player.xpm",
+	img->bg = mlx_xpm_file_to_image(var->mlx, "textures/bg/bg.xpm", &img->bg_x,
+			&img->bg_y);
+	img->player = mlx_xpm_file_to_image(var->mlx, "textures/player/player.xpm",
 			&img->player_x, &img->player_y);
-	img->col = mlx_xpm_file_to_image(var->mlx, "img/apple/apple1.xpm",
+	img->col = mlx_xpm_file_to_image(var->mlx, "textures/apple/apple1.xpm",
 			&img->col_x, &img->col_y);
-	img->exit = mlx_xpm_file_to_image(var->mlx, "img/exit/exit.xpm",
+	img->exit = mlx_xpm_file_to_image(var->mlx, "textures/exit/exit.xpm",
 			&img->exit_x, &img->exit_y);
-	if (!img->wall || !img->bg || !img->player || !img->col
-		|| !img->exit)
+	if (!img->wall || !img->bg || !img->player || !img->col || !img->exit)
 		return (1);
 	return (0);
 }

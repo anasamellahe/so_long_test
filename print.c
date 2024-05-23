@@ -5,8 +5,8 @@ void	print_collectible(t_vars *var, t_img *img, t_position *pos)
 	while (pos)
 	{
 		if (pos->col_x != -1 && pos->col_y != -1)
-			mlx_put_image_to_window(var->mlx, var->win, img->col,
-				pos->col_x, pos->col_y);
+			mlx_put_image_to_window(var->mlx, var->win, img->col, pos->col_x,
+				pos->col_y);
 		pos = pos->next;
 	}
 }
@@ -16,8 +16,8 @@ void	print_wall(t_vars *var, t_position *pos, t_img *img)
 	while (pos)
 	{
 		if (pos->wall_x != -1 && pos->wall_y != -1)
-			mlx_put_image_to_window(var->mlx, var->win, img->wall,
-				pos->wall_x, pos->wall_y);
+			mlx_put_image_to_window(var->mlx, var->win, img->wall, pos->wall_x,
+				pos->wall_y);
 		pos = pos->next;
 	}
 }

@@ -13,7 +13,7 @@ int	check_map_size(t_vars *var)
 
 int	map_len(char **map)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (map[i])

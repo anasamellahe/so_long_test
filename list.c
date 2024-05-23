@@ -32,6 +32,7 @@ t_position	*ft_new_pos(int x, int y, int flag)
 	new->next = NULL;
 	return (new);
 }
+
 void	free_list(t_position *list)
 {
 	t_position	*tmp;

@@ -1,4 +1,3 @@
-
 #include "so_long.h"
 
 int	free_map(char **map)
