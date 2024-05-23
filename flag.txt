@@ -1,0 +1,2 @@
+mac_OS : gcc so_long.c get_next_line.c /usr/local/lib/libmlx.a -lmlx -framework OpenGL -framework AppKit libft.a
+linux  : gcc -I/usr/include -Imlx_linux -O3 *.c -Lmlx_linux -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz libft.a
