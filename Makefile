@@ -4,7 +4,10 @@ SRC =	get_next_line.c \
 		so_long.c \
 		print.c \
 		moves.c \
-		list.c
+		list.c\
+		list_2.c\
+		print_2.c\
+		utils.c
 OBJ =	$(SRC:.c=.o)
 CC = cc
 CFLAGS = -Wall -Wextra -Werror 
@@ -13,20 +16,20 @@ CFLAGS = -Wall -Wextra -Werror
 all: libft $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS)  $(OBJ) -Lmlx_linux -lmlx_Linux -L/usr/lib -Llibft -Ilibft -Imlx_linux -lXext -lX11 -lm -lz -o  $(NAME)
+	$(CC) $(CFLAGS)  $(OBJ) -Lmlx_linux -lmlx_Linux -L/usr/lib -Llibft -lft -Imlx_linux -lXext -lX11 -lm -lz -o  $(NAME)
 
 $(OBJ): %.o : %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 libft:
-	make all -C libft
+	@make  all -s -C libft
 clean:
 	rm -f $(OBJ)
-	make clean -C libft
+	@make  clean -s -Clibft
 
 fclean: clean
 	rm -f $(NAME)
-	make -C libft fclean
+	@make  fclean -s -C libft 
 
 re: fclean all
 

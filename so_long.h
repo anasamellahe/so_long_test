@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anamella <anamella@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/24 10:31:18 by anamella          #+#    #+#             */
+/*   Updated: 2024/05/24 10:38:11 by anamella         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
@@ -83,13 +95,11 @@ typedef struct s_param
 
 void					move_play(t_vars *var, t_img *img, t_position *pos,
 							t_player *player);
-void					invalid_free(char *error, char **map, t_vars *var,
-							t_img *img);
 void					print_collectible(t_vars *var, t_img *img,
 							t_position *pos);
 void					set_posistion(t_position **pos, int size,
 							t_player *player, char **map);
-
+void					invalid_free(char *error, char **map, t_vars *var, t_img *img);
 void					ft_lstadd_back_pos(t_position **lst, t_position *new);
 void					print_wall(t_vars *var, t_position *pos, t_img *img);
 void					print_exit(t_vars *var, t_img *img, t_position *pos);
@@ -118,7 +128,6 @@ int						map_generator(int fd);
 int						check_map(char **map);
 int						free_map(char **map);
 int						free_map(char **map);
-int						map_len(char **map);
 int						map_len(char **map);
 
 t_position				*ft_new_pos(int x, int y, int flag);

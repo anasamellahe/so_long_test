@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   moves.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anamella <anamella@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/24 10:31:34 by anamella          #+#    #+#             */
+/*   Updated: 2024/05/24 10:34:59 by anamella         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 int	check_exit(t_param *param)
@@ -74,7 +86,8 @@ int	check_key(int key, t_param *p)
 	static int	moves;
 	int			i;
 	char		*smoves;
-
+	
+	i = 0;
 	if (key == ESC)
 		i = (i * 0) + destroy(p);
 	if (key == UP_W || key == UP)
