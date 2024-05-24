@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   print_2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anamella <anamella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/24 10:31:11 by anamella          #+#    #+#             */
-/*   Updated: 2024/05/24 10:31:14 by anamella         ###   ########.fr       */
+/*   Created: 2024/05/24 10:31:30 by anamella          #+#    #+#             */
+/*   Updated: 2024/05/24 14:36:47 by anamella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
-int	check_map_size(t_vars *var)
+void	print_exit(t_vars *var, t_img *img, t_position *pos)
 {
-	int	x;
-	int	y;
-
-	mlx_get_screen_size(var->mlx, &x, &y);
-	if (var->win_x > x || var->win_y > y)
-		return (1);
-	return (0);
-}
-
-int	map_len(char **map)
-{
-	int	i;
-
-	i = 0;
-	while (map[i])
-		i++;
-	return (i);
+	while (pos)
+	{
+		if (pos->exit_x != -1 && pos->exit_y != -1)
+		{
+			mlx_put_image_to_window(var->mlx, var->win, img->exit, pos->exit_x,
+				pos->exit_y);
+			break ;
+		}
+		pos = pos->next;
+	}
 }

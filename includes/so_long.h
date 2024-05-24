@@ -6,7 +6,7 @@
 /*   By: anamella <anamella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 10:31:18 by anamella          #+#    #+#             */
-/*   Updated: 2024/05/24 10:38:11 by anamella         ###   ########.fr       */
+/*   Updated: 2024/05/24 14:35:55 by anamella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SO_LONG_H
 
 # include "get_next_line.h"
-# include "libft/libft.h"
+# include "../libft/libft.h"
 # include "mlx.h"
 # include <fcntl.h>
 # include <stdlib.h>

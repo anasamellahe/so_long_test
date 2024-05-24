@@ -6,11 +6,11 @@
 /*   By: anamella <anamella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 10:31:34 by anamella          #+#    #+#             */
-/*   Updated: 2024/05/24 10:34:59 by anamella         ###   ########.fr       */
+/*   Updated: 2024/05/24 14:50:48 by anamella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 int	check_exit(t_param *param)
 {
@@ -86,20 +86,19 @@ int	check_key(int key, t_param *p)
 	static int	moves;
 	int			i;
 	char		*smoves;
-	
-	i = 0;
+
+	i = moves;
 	if (key == ESC)
-		i = (i * 0) + destroy(p);
+		moves += destroy(p);
 	if (key == UP_W || key == UP)
-		i = (i * 0) + check_position(p, 0, -1, &moves);
+		moves += check_position(p, 0, -1, &moves);
 	if (key == DOWN_S || key == DOWN)
-		i = (i * 0) + check_position(p, 0, 1, &moves);
+		moves += check_position(p, 0, 1, &moves);
 	if (key == LEFT_A || key == LEFT)
-		i = (i * 0) + check_position(p, -1, 0, &moves);
+		moves += check_position(p, -1, 0, &moves);
 	if (key == RIGHT_D || key == RIGHT)
-		i = (i * 0) + check_position(p, 1, 0, &moves);
-	moves += i;
-	if (i != 0)
+		moves += check_position(p, 1, 0, &moves);
+	if (i < moves)
 	{
 		mlx_put_image_to_window(p->var->mlx, p->var->win, p->img->wall, 0, 0);
 		mlx_put_image_to_window(p->var->mlx, p->var->win, p->img->wall, 32, 0);

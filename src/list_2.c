@@ -6,11 +6,11 @@
 /*   By: anamella <anamella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 10:31:45 by anamella          #+#    #+#             */
-/*   Updated: 2024/05/24 10:31:46 by anamella         ###   ########.fr       */
+/*   Updated: 2024/05/24 14:36:31 by anamella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 int	free_map(char **map)
 {

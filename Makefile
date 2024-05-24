@@ -1,13 +1,13 @@
 NAME = so_long
-SRC =	get_next_line.c \
-		map_checker.c \
-		so_long.c \
-		print.c \
-		moves.c \
-		list.c\
-		list_2.c\
-		print_2.c\
-		utils.c
+SRC =	src/get_next_line.c \
+		src/map_checker.c \
+		src/so_long.c \
+		src/print.c \
+		src/moves.c \
+		src/list.c\
+		src/list_2.c\
+		src/print_2.c\
+		src/utils.c
 OBJ =	$(SRC:.c=.o)
 CC = cc
 CFLAGS = -Wall -Wextra -Werror 

@@ -6,11 +6,11 @@
 /*   By: anamella <anamella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 23:11:30 by anamella          #+#    #+#             */
-/*   Updated: 2024/05/14 00:50:48 by anamella         ###   ########.fr       */
+/*   Updated: 2024/05/24 14:36:14 by anamella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../includes/get_next_line.h"
 
 char	*read_file(char *s, int fd)
 {

@@ -6,11 +6,11 @@
 /*   By: anamella <anamella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 10:31:38 by anamella          #+#    #+#             */
-/*   Updated: 2024/05/24 10:31:39 by anamella         ###   ########.fr       */
+/*   Updated: 2024/05/24 14:36:39 by anamella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 int	check_if_map_closed(char **map)
 {

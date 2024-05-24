@@ -6,11 +6,11 @@
 /*   By: anamella <anamella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 10:31:22 by anamella          #+#    #+#             */
-/*   Updated: 2024/05/24 10:31:23 by anamella         ###   ########.fr       */
+/*   Updated: 2024/05/24 14:55:52 by anamella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 void	get_window_size(t_vars *var, int size, char **map)
 {
@@ -112,6 +112,9 @@ int	main(int ac, char *av[])
 		}
 	}
 	else
+	{
+		write(2, "Error: invalid number of args\n", 30);
 		return (1);
+	}
 	return (0);
 }
