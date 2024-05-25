@@ -6,7 +6,7 @@
 /*   By: anamella <anamella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 10:31:18 by anamella          #+#    #+#             */
-/*   Updated: 2024/05/24 14:35:55 by anamella         ###   ########.fr       */
+/*   Updated: 2024/05/25 15:57:55 by anamella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+# include <errno.h>
 
 # define RIGHT 65363
 # define DOWN 65364
@@ -99,7 +100,8 @@ void					print_collectible(t_vars *var, t_img *img,
 							t_position *pos);
 void					set_posistion(t_position **pos, int size,
 							t_player *player, char **map);
-void					invalid_free(char *error, char **map, t_vars *var, t_img *img);
+void					invalid_free(char *error, char **map, t_vars *var,
+							t_img *img);
 void					ft_lstadd_back_pos(t_position **lst, t_position *new);
 void					print_wall(t_vars *var, t_position *pos, t_img *img);
 void					print_exit(t_vars *var, t_img *img, t_position *pos);
@@ -123,6 +125,7 @@ int						check_map_size(t_vars *var);
 int						check_exit(t_param *param);
 int						check_map_line(char *str);
 int						destroy(t_param *param);
+int						check_file(char *file);
 int						map_generator(int fd);
 int						map_generator(int fd);
 int						check_map(char **map);

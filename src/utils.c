@@ -6,7 +6,7 @@
 /*   By: anamella <anamella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 10:31:11 by anamella          #+#    #+#             */
-/*   Updated: 2024/05/24 14:36:58 by anamella         ###   ########.fr       */
+/*   Updated: 2024/05/25 15:20:32 by anamella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,18 @@ int	map_len(char **map)
 	while (map[i])
 		i++;
 	return (i);
+}
+
+int	check_file(char	*file)
+{
+	char	*tmp;
+
+	tmp = ft_strnstr(file, ".ber", ft_strlen(file));
+	while (ft_strlen(tmp) > ft_strlen(".ber"))
+		tmp = ft_strnstr(tmp + 1, ".ber", ft_strlen(file));
+	if (tmp == NULL)
+		return (1);
+	if (ft_strncmp(tmp, ".ber", ft_strlen(tmp)) == 0)
+		return (0);
+	return (1);
 }

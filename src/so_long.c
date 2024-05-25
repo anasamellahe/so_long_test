@@ -6,7 +6,7 @@
 /*   By: anamella <anamella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 10:31:22 by anamella          #+#    #+#             */
-/*   Updated: 2024/05/24 14:55:52 by anamella         ###   ########.fr       */
+/*   Updated: 2024/05/25 15:21:04 by anamella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	set_img(t_vars *var, t_img *img)
 			&img->bg_y);
 	img->player = mlx_xpm_file_to_image(var->mlx, "textures/player/player.xpm",
 			&img->player_x, &img->player_y);
-	img->col = mlx_xpm_file_to_image(var->mlx, "textures/apple/apple1.xpm",
+	img->col = mlx_xpm_file_to_image(var->mlx, "textures/apple/apple.xpm",
 			&img->col_x, &img->col_y);
 	img->exit = mlx_xpm_file_to_image(var->mlx, "textures/exit/exit.xpm",
 			&img->exit_x, &img->exit_y);
@@ -99,22 +99,15 @@ int	main(int ac, char *av[])
 
 	if (ac == 2)
 	{
+		if (check_file(av[1]))
+			return (write(2, "Error: invalid .ber file\n", 25), 1);
 		fd = open(av[1], O_RDWR);
 		if (fd == -1)
-		{
-			write(2, "Error\n", 6);
-			return (1);
-		}
+			return (write(2, "Error: No such file or directory\n", 33), 1);
 		if (map_generator(fd))
-		{
-			write(2, "Error:map invalid\n", 19);
-			return (1);
-		}
+			return (write(2, "Error:map invalid\n", 19), 1);
 	}
 	else
-	{
-		write(2, "Error: invalid number of args\n", 30);
-		return (1);
-	}
+		return (write(2, "Error: invalid number of args\n", 30), 1);
 	return (0);
 }

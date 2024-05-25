@@ -6,7 +6,7 @@
 /*   By: anamella <anamella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 10:31:38 by anamella          #+#    #+#             */
-/*   Updated: 2024/05/24 14:36:39 by anamella         ###   ########.fr       */
+/*   Updated: 2024/05/25 15:45:35 by anamella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	check_map_line(char *str)
 	player = 0;
 	exit = 0;
 	i = 0;
-	while (str[i])
+	while (str && str[i])
 	{
 		exit += (str[i] == 'E');
 		player += (str[i] == 'P');
@@ -61,7 +61,7 @@ int	check_map_line(char *str)
 			return (-1);
 		i++;
 	}
-	if (exit != 1 || player != 1 || collectible == 0)
+	if (exit != 1 || player != 1 || collectible == 0 || str == NULL)
 		return (-1);
 	return (0);
 }
