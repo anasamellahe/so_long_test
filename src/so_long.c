@@ -6,11 +6,11 @@
 /*   By: anamella <anamella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 10:31:22 by anamella          #+#    #+#             */
-/*   Updated: 2024/05/25 15:21:04 by anamella         ###   ########.fr       */
+/*   Updated: 2024/05/25 16:23:42 by anamella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../include/so_long.h"
 
 void	get_window_size(t_vars *var, int size, char **map)
 {

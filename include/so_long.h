@@ -6,7 +6,7 @@
 /*   By: anamella <anamella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 10:31:18 by anamella          #+#    #+#             */
-/*   Updated: 2024/05/25 15:57:55 by anamella         ###   ########.fr       */
+/*   Updated: 2024/05/25 16:25:06 by anamella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,11 @@
 
 # include "get_next_line.h"
 # include "../libft/libft.h"
-# include "mlx.h"
+# include <mlx.h>
 # include <fcntl.h>
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
-# include <errno.h>
 
 # define RIGHT 65363
 # define DOWN 65364

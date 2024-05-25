@@ -6,11 +6,11 @@
 /*   By: anamella <anamella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 10:31:11 by anamella          #+#    #+#             */
-/*   Updated: 2024/05/25 15:20:32 by anamella         ###   ########.fr       */
+/*   Updated: 2024/05/25 16:24:03 by anamella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../include/so_long.h"
 
 int	check_map_size(t_vars *var)
 {

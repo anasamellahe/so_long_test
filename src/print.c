@@ -6,11 +6,11 @@
 /*   By: anamella <anamella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 10:31:26 by anamella          #+#    #+#             */
-/*   Updated: 2024/05/24 14:36:50 by anamella         ###   ########.fr       */
+/*   Updated: 2024/05/25 16:23:59 by anamella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../include/so_long.h"
 
 void	print_collectible(t_vars *var, t_img *img, t_position *pos)
 {
